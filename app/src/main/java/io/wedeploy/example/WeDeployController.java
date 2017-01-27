@@ -18,6 +18,8 @@ public class WeDeployController {
     }
 
     public static void main(String[] args) {
+        System.out.println("\n\n ################ Starter");
+
         SpringApplication.run(WeDeployController.class, args);
     }
 
