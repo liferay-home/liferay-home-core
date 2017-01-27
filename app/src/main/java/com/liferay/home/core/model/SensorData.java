@@ -1,12 +1,14 @@
 package com.liferay.home.core.model;
 
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
  * @author Akos Thurzo
  */
+@Entity
 public class SensorData {
 	@Id
 	@GeneratedValue
