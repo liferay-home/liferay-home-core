@@ -1,8 +1,6 @@
 package com.liferay.home.core.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by kocsi on 2017. 01. 27..
@@ -41,6 +39,8 @@ public class Device {
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	@Enumerated(EnumType.STRING)
 	private DeviceType type;
 	private String name;
 
