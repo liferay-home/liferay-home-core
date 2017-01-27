@@ -16,6 +16,14 @@ public class SensorData {
 	private String type;
 	private Double value;
 
+	public SensorData(String type, Double value) {
+		this.type = type;
+		this.value = value;
+	}
+
+	public SensorData() {
+	}
+
 	public Long getId() {
 		return id;
 	}
