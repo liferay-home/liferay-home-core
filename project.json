@@ -1,3 +1,4 @@
 {
-	"id": "liferay-home"
-} 
+	"id": "liferay-home",
+	"homeContainer": "hosting"
+}
