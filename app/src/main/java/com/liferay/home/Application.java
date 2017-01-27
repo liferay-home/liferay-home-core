@@ -1,4 +1,4 @@
-package com.liferay.home.core.com.liferay.home.core;
+package com.liferay.home;
 
 import com.liferay.home.core.model.SensorData;
 import org.springframework.boot.SpringApplication;
