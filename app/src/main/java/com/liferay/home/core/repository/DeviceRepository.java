@@ -13,6 +13,8 @@ import java.util.List;
 @RepositoryRestResource(path = "/devices")
 public interface DeviceRepository extends CrudRepository<Device, Long> {
 
+	// test
+
 	public List<Device> findBySerialNumber(
 		@Param("serialNumber") String serialNumber);
 
