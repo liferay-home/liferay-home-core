@@ -14,16 +14,26 @@ public class SensorData {
 	private Long id;
 	@ManyToOne
 	private Device device;
-	private String type;
+	@Enumerated(EnumType.STRING)
+	private SensorType type;
 	private Double value;
 
-	public SensorData(Device device, String type, Double value) {
+	public SensorData(Device device, SensorType type, Double value) {
 		this.device = device;
 		this.type = type;
 		this.value = value;
 	}
-
 	public SensorData() {
+	}
+
+	@Override
+	public String toString() {
+		return "SensorData{" +
+			"id=" + id +
+			", device=" + device +
+			", type=" + type +
+			", value=" + value +
+			'}';
 	}
 
 	public Device getDevice() {
@@ -34,15 +44,6 @@ public class SensorData {
 		this.device = device;
 	}
 
-	@Override
-	public String toString() {
-		return "SensorData{" +
-			"id=" + id +
-			", type='" + type + '\'' +
-			", value=" + value +
-			'}';
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -51,11 +52,11 @@ public class SensorData {
 		this.id = id;
 	}
 
-	public String getType() {
+	public SensorType getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(SensorType type) {
 		this.type = type;
 	}
 
@@ -65,6 +66,10 @@ public class SensorData {
 
 	public void setValue(Double value) {
 		this.value = value;
+	}
+
+	public enum SensorType {
+		HUMIDITY, TEMPERATURE
 	}
 
 }
