@@ -1,18 +1,21 @@
 package com.liferay.home.core.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * @author Akos Thurzo
  */
 @Entity
 public class SensorData {
+
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	@ManyToOne
+	private Device device;
+
 	private String type;
 	private Double value;
 
@@ -56,4 +59,5 @@ public class SensorData {
 	public void setValue(Double value) {
 		this.value = value;
 	}
+
 }

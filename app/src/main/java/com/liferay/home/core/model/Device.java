@@ -1,0 +1,68 @@
+package com.liferay.home.core.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+/**
+ * Created by kocsi on 2017. 01. 27..
+ */
+@Entity
+public class Device {
+
+	public enum DeviceType {
+		HOME, PHONE
+	}
+
+	public DeviceType getType() {
+		return type;
+	}
+
+	public void setType(DeviceType type) {
+		this.type = type;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@Id
+	@GeneratedValue
+	private Long id;
+	private DeviceType type;
+	private String name;
+
+	public Device(DeviceType type, String name, String description) {
+		this.type = type;
+		this.name = name;
+		this.description = description;
+	}
+
+	public Device() {
+	}
+
+	@Override
+	public String toString() {
+		return "Device{" +
+			"id=" + id +
+			", type=" + type +
+			", name='" + name + '\'' +
+			", description='" + description + '\'' +
+			'}';
+	}
+
+	private String description;
+
+}
