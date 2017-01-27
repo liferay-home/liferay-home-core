@@ -11,7 +11,13 @@ import java.util.List;
 public class Device {
 
 	public enum DeviceType {
-		HOME, PHONE
+		HOME, PHONE;
+	}
+
+	public Device(DeviceType type, String name, String description) {
+		this.type = type;
+		this.name = name;
+		this.description = description;
 	}
 
 	public DeviceType getType() {
@@ -41,19 +47,17 @@ public class Device {
 	@Id
 	@GeneratedValue
 	private Long id;
+	private String description;
 
 	@Enumerated(EnumType.STRING)
 	private DeviceType type;
 	private String name;
 
-	@OneToMany
-	private List<SensorData> sensorDataList = new ArrayList<>();
+	@OneToOne
+	private List<Location> locations = new ArrayList<>();
 
-	public Device(DeviceType type, String name, String description) {
-		this.type = type;
-		this.name = name;
-		this.description = description;
-	}
+	@OneToMany
+	private List<SensorData> sensorDatas = new ArrayList<>();
 
 	public Device() {
 	}
@@ -67,7 +71,5 @@ public class Device {
 			", description='" + description + '\'' +
 			'}';
 	}
-
-	private String description;
 
 }
