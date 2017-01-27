@@ -16,6 +16,15 @@ public class SensorData {
 	private String type;
 	private Double value;
 
+	@Override
+	public String toString() {
+		return "SensorData{" +
+			"id=" + id +
+			", type='" + type + '\'' +
+			", value=" + value +
+			'}';
+	}
+
 	public SensorData(String type, Double value) {
 		this.type = type;
 		this.value = value;

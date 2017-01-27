@@ -18,7 +18,7 @@ public class WeDeployController {
 
         sensorDataService.save(new SensorData("test", 1.0d));
 
-        System.out.print("Sensor Data: ");
+        System.out.print("\n\n##########Sensor Data: ");
 
         sensorDataService.fetchAll().forEach(System.out::println);
 
