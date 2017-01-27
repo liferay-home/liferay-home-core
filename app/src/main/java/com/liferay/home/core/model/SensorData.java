@@ -13,7 +13,7 @@ public class SensorData {
 	@GeneratedValue
 	private Long id;
 
-	//@ManyToOne
+	@ManyToOne
 	private Device device;
 
 	private String type;

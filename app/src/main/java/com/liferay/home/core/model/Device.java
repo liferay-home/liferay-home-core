@@ -1,6 +1,8 @@
 package com.liferay.home.core.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by kocsi on 2017. 01. 27..
@@ -43,6 +45,9 @@ public class Device {
 	@Enumerated(EnumType.STRING)
 	private DeviceType type;
 	private String name;
+
+	@OneToMany
+	private List<SensorData> sensorDataList = new ArrayList<>();
 
 	public Device(DeviceType type, String name, String description) {
 		this.type = type;
