@@ -10,14 +10,38 @@ import java.util.List;
 @Entity
 public class Device {
 
-	public enum DeviceType {
-		HOME, PHONE;
-	}
+	@Id
+	@GeneratedValue
+	private Long id;
+	private String description;
+	@Column(unique = true)
+	private String serialNumber;
+	@Enumerated(EnumType.STRING)
+	private DeviceType type;
+	private String name;
+	@OneToMany
+	private List<Location> locations = new ArrayList<>();
+	@OneToMany
+	private List<SensorData> sensorData = new ArrayList<>();
 
-	public Device(DeviceType type, String name, String description) {
+	public Device(String description, String serialNumber, DeviceType type, String name, List<Location> locations, List<SensorData> sensorData) {
+		this.description = description;
+		this.serialNumber = serialNumber;
 		this.type = type;
 		this.name = name;
-		this.description = description;
+		this.locations = locations;
+		this.sensorData = sensorData;
+	}
+
+	public Device() {
+	}
+
+	public String getSerialNumber() {
+		return serialNumber;
+	}
+
+	public void setSerialNumber(String serialNumber) {
+		this.serialNumber = serialNumber;
 	}
 
 	public DeviceType getType() {
@@ -44,24 +68,6 @@ public class Device {
 		this.description = description;
 	}
 
-	@Id
-	@GeneratedValue
-	private Long id;
-	private String description;
-
-	@Enumerated(EnumType.STRING)
-	private DeviceType type;
-	private String name;
-
-	@OneToOne
-	private List<Location> locations = new ArrayList<>();
-
-	@OneToMany
-	private List<SensorData> sensorDatas = new ArrayList<>();
-
-	public Device() {
-	}
-
 	@Override
 	public String toString() {
 		return "Device{" +
@@ -70,6 +76,10 @@ public class Device {
 			", name='" + name + '\'' +
 			", description='" + description + '\'' +
 			'}';
+	}
+
+	public enum DeviceType {
+		HOME, PHONE;
 	}
 
 }

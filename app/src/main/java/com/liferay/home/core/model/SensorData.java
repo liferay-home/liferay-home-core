@@ -12,12 +12,27 @@ public class SensorData {
 	@Id
 	@GeneratedValue
 	private Long id;
-
 	@ManyToOne
 	private Device device;
-
 	private String type;
 	private Double value;
+
+	public SensorData(Device device, String type, Double value) {
+		this.device = device;
+		this.type = type;
+		this.value = value;
+	}
+
+	public SensorData() {
+	}
+
+	public Device getDevice() {
+		return device;
+	}
+
+	public void setDevice(Device device) {
+		this.device = device;
+	}
 
 	@Override
 	public String toString() {
@@ -26,14 +41,6 @@ public class SensorData {
 			", type='" + type + '\'' +
 			", value=" + value +
 			'}';
-	}
-
-	public SensorData(String type, Double value) {
-		this.type = type;
-		this.value = value;
-	}
-
-	public SensorData() {
 	}
 
 	public Long getId() {

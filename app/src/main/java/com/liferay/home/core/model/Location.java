@@ -14,6 +14,15 @@ public class Location {
 	private long longitude;
 	private long latitude;
 
+	@ManyToOne
+	private Device device;
+
+	public Location(long longitude, long latitude, Device device) {
+		this.longitude = longitude;
+		this.latitude = latitude;
+		this.device = device;
+	}
+
 	public long getLongitude() {
 		return longitude;
 	}
@@ -47,14 +56,5 @@ public class Location {
 			", device=" + device +
 			'}';
 	}
-
-	public Location(long longitude, long latitude, Device device) {
-		this.longitude = longitude;
-		this.latitude = latitude;
-		this.device = device;
-	}
-
-	@ManyToOne
-	private Device device;
 
 }

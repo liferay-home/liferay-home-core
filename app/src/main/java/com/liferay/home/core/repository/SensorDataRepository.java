@@ -7,6 +7,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 /**
  * @author Akos Thurzo
  */
-@RepositoryRestResource(path = "/sensordata")
+@RepositoryRestResource(path = "/sensor-data")
 public interface SensorDataRepository extends CrudRepository<SensorData, Long> {
 }

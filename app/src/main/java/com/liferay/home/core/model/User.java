@@ -10,6 +10,20 @@ import javax.persistence.Id;
 @Entity
 public class User {
 
+	@Id
+	@GeneratedValue
+	private Long id;
+	private String name;
+	private String googleId;
+
+	public User(String name, String googleId) {
+		this.name = name;
+		this.googleId = googleId;
+	}
+
+	public User() {
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -34,14 +48,6 @@ public class User {
 		this.googleId = googleId;
 	}
 
-	public User(String name, String googleId) {
-		this.name = name;
-		this.googleId = googleId;
-	}
-
-	public User() {
-	}
-
 	@Override
 	public String toString() {
 		return "User{" +
@@ -50,11 +56,5 @@ public class User {
 			", googleId='" + googleId + '\'' +
 			'}';
 	}
-
-	@Id
-	@GeneratedValue
-	private Long id;
-	private String name;
-	private String googleId;
 
 }
