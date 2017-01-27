@@ -5,11 +5,14 @@ import com.liferay.home.core.model.SensorData;
 import com.liferay.home.core.repository.SensorDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 
 /**
  * Created by kocsi on 2017. 01. 27..
  */
 @Service
+@Transactional
 public class SensorDataServiceImpl implements SensorDataService {
 
 	@Override
@@ -21,7 +24,6 @@ public class SensorDataServiceImpl implements SensorDataService {
 	public Iterable<SensorData> fetchAll() {
 		return sensorDataRepository.findAll();
 	}
-
 
 	@Autowired
 	private SensorDataRepository sensorDataRepository;
