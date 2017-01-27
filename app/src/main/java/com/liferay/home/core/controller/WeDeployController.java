@@ -15,13 +15,6 @@ public class WeDeployController {
 
     @RequestMapping("/")
     public ModelAndView hello() {
-
-        sensorDataService.save(new SensorData("test", 1.0d));
-
-        System.out.print("\n\n##########Sensor Data: ");
-
-        sensorDataService.fetchAll().forEach(System.out::println);
-
         return new ModelAndView("layout");
     }
 
