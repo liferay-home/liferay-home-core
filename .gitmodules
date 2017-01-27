@@ -1,0 +1,3 @@
+[submodule "liferay-home-ui"]
+	path = liferay-home-ui
+	url = https://github.com/liferay-home/liferay-home-ui.git
