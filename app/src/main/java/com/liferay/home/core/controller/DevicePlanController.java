@@ -34,6 +34,8 @@ public class DevicePlanController {
 
 		Double value = sensorData.getValue();
 
+		System.out.println("########Latest device data: " + value);
+
 		if (value < 50) {
 			return "HEAT";
 		}
