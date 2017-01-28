@@ -56,6 +56,9 @@ public class Location {
 		this.device = device;
 	}
 
+	public Location() {
+	}
+
 	@Override
 	public String toString() {
 		return "Location{" +
