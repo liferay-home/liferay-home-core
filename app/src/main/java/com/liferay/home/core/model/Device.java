@@ -56,6 +56,30 @@ public class Device {
 		return name;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public List<Location> getLocations() {
+		return locations;
+	}
+
+	public void setLocations(List<Location> locations) {
+		this.locations = locations;
+	}
+
+	public List<SensorData> getSensorData() {
+		return sensorData;
+	}
+
+	public void setSensorData(List<SensorData> sensorData) {
+		this.sensorData = sensorData;
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
