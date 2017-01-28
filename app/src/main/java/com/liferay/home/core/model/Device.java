@@ -17,6 +17,10 @@ public class Device {
 	@Column(unique = true)
 	private String serialNumber;
 	@Enumerated(EnumType.STRING)
+	private DeviceStatus status;
+	@ManyToOne
+	private User user;
+	@Enumerated(EnumType.STRING)
 	private DeviceType type;
 	private String name;
 	@OneToMany
@@ -24,9 +28,11 @@ public class Device {
 	@OneToMany
 	private List<SensorData> sensorData = new ArrayList<>();
 
-	public Device(String description, String serialNumber, DeviceType type, String name, List<Location> locations, List<SensorData> sensorData) {
+	public Device(String description, String serialNumber, DeviceStatus status, User user, DeviceType type, String name, List<Location> locations, List<SensorData> sensorData) {
 		this.description = description;
 		this.serialNumber = serialNumber;
+		this.status = status;
+		this.user = user;
 		this.type = type;
 		this.name = name;
 		this.locations = locations;
@@ -34,6 +40,22 @@ public class Device {
 	}
 
 	public Device() {
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public DeviceStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(DeviceStatus status) {
+		this.status = status;
 	}
 
 	public String getSerialNumber() {
@@ -96,10 +118,19 @@ public class Device {
 	public String toString() {
 		return "Device{" +
 			"id=" + id +
+			", description='" + description + '\'' +
+			", serialNumber='" + serialNumber + '\'' +
+			", status=" + status +
+			", user=" + user +
 			", type=" + type +
 			", name='" + name + '\'' +
-			", description='" + description + '\'' +
+			", locations=" + locations +
+			", sensorData=" + sensorData +
 			'}';
+	}
+
+	public enum DeviceStatus {
+		ACTIVE, INACTIVE
 	}
 
 	public enum DeviceType {

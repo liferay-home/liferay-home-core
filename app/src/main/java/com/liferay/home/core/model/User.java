@@ -3,6 +3,8 @@ package com.liferay.home.core.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 /**
  * Created by kocsi on 2017. 01. 27..
@@ -16,6 +18,9 @@ public class User {
 	private String name;
 	private String googleId;
 
+	@OneToMany
+	private List<Device> devices;
+
 	public User(String name, String googleId) {
 		this.name = name;
 		this.googleId = googleId;
@@ -26,6 +31,14 @@ public class User {
 
 	public Long getId() {
 		return id;
+	}
+
+	public List<Device> getDevices() {
+		return devices;
+	}
+
+	public void setDevices(List<Device> devices) {
+		this.devices = devices;
 	}
 
 	public void setId(Long id) {
@@ -54,6 +67,7 @@ public class User {
 			"id=" + id +
 			", name='" + name + '\'' +
 			", googleId='" + googleId + '\'' +
+			", devices=" + devices +
 			'}';
 	}
 
