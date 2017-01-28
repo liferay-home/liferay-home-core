@@ -11,13 +11,13 @@ public class Location {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private long longitude;
-	private long latitude;
+	private Double longitude;
+	private Double latitude;
 
 	@ManyToOne
 	private Device device;
 
-	public Location(long longitude, long latitude, Device device) {
+	public Location(Double longitude, Double latitude, Device device) {
 		this.longitude = longitude;
 		this.latitude = latitude;
 		this.device = device;
@@ -31,20 +31,20 @@ public class Location {
 		this.id = id;
 	}
 
-	public long getLongitude() {
+	public Double getLongitude() {
 		return longitude;
 
 	}
 
-	public void setLongitude(long longitude) {
+	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
 
-	public long getLatitude() {
+	public Double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(long latitude) {
+	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
 
