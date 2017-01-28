@@ -7,6 +7,8 @@ import com.liferay.home.core.model.SensorData;
  */
 public interface SensorDataService {
 
+	public Iterable<SensorData> fetchByDeviceId(long deviceId);
+
 	public SensorData save(SensorData sensorData);
 
 	public Iterable<SensorData> fetchAll();
