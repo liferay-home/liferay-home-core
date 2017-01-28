@@ -28,6 +28,10 @@ public class DevicePlanController {
 			sensorData = sensorDataIterator.next();
 		}
 
+		if (sensorData == null) {
+			return "NOOP";
+		}
+
 		Double value = sensorData.getValue();
 
 		if (value < 50) {
